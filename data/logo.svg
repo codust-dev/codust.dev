@@ -1,3 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 2000 2000">
-  <image id="Mix-grad_copy" data-name="Mix-grad copy" x="130" y="388" width="1740" height="1224" xlink:href="data:img/png;base64,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"/>
+<svg id="Main" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 2000 2000">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 9.1-c002 79.b7c64cc, 2024/07/16-07:59:40        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/">
+         <xmp:CreatorTool>Adobe Photoshop 26.1 (Windows)</xmp:CreatorTool>
+      </rdf:Description>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        fill: url(#linear-gradient);
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-3);
+        stroke: url(#linear-gradient-4);
+      }
+
+      .cls-3 {
+        font-size: 284.605px;
+        fill: #fff;
+        font-family: "Maven Pro";
+        font-weight: 800;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1748.488" y1="1835.41" x2="329.82" y2="83.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#03a5af"/>
+      <stop offset="0.384" stop-color="#03a5af"/>
+      <stop offset="1" stop-color="#01153e"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="1915.12" y1="1082.564" x2="163.188" y2="836.346" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#32b7b6"/>
+      <stop offset="0.494" stop-color="#3581a5"/>
+      <stop offset="1" stop-color="#425389"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="97.156" y1="904.141" x2="1748.81" y2="904.141" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff0aeb"/>
+      <stop offset="0.03" stop-color="#ff0aeb"/>
+      <stop offset="0.876" stop-color="#003362"/>
+      <stop offset="1" stop-color="#003362"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="1748.81" y1="1020.204" x2="97.156" y2="788.079" xlink:href="#linear-gradient-2"/>
+  </defs>
+  <g id="Mix-grad_copy_3" data-name="Mix-grad copy 3">
+    <path id="Blue_copy" data-name="Blue copy" class="cls-1" d="M1364.02,177.373l520.57,831.3c58.63,93.61,30.26,217.03-63.35,275.65l-831.3,520.58c-93.616,58.62-217.031,30.26-275.655-63.36L193.711,910.245c-58.624-93.616-30.258-217.031,63.358-275.655L1088.36,114.015C1181.98,55.391,1305.39,83.757,1364.02,177.373Z"/>
+    <path id="Pink_copy_4" data-name="Pink copy 4" class="cls-2" d="M221.311,457.334L1108.86,93.314c102.19-41.915,219.02,6.953,260.93,109.149l364.02,887.547c41.92,102.19-6.95,219.02-109.15,260.93L737.116,1714.96c-102.195,41.92-219.019-6.95-260.934-109.15L112.163,718.268C70.249,616.072,119.116,499.248,221.311,457.334Z"/>
+  </g>
+  <text id="codust" class="cls-3" transform="translate(369.46 1241.166) scale(1.376)">codust</text>
 </svg>
