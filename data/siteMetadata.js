@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Codust.dev',
-  author: 'AI@Codust',
+  // author: 'AI@Codust',
   headerTitle: 'Codust.dev',
   description: 'Empowering developers to build the better future',
   language: 'en-us',
