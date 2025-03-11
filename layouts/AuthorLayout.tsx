@@ -19,8 +19,15 @@ export default function AuthorLayout({ children, content }: Props) {
             About
           </h1>
         </div>
-        <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
-          <div className="flex flex-col items-center space-x-2 pt-8">
+        <div className="flex justify-center pt-8 pb-8">
+          <div className="prose dark:prose-invert max-w-3xl text-center">
+            {children}
+          </div>
+        </div>
+
+        {/* <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
+          {/* @manthan  */}
+          {/* <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (
               <Image
                 src={avatar}
@@ -41,10 +48,10 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind="bluesky" href={bluesky} />
             </div>
           </div>
-          <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">
+          <div className="prose dark:prose-invert max-w-3xl mx-auto pt-8 pb-8 xl:col-span-2 text-center">
             {children}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )

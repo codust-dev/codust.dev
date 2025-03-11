@@ -12,7 +12,7 @@ const siteMetadata = {
   // socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'contact@codust.dev',
-  github: 'https://github.com/codust-dev',
+  // github: 'https://github.com/codust-dev',
   x: 'https://x.com/codust_dev',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
