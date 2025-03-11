@@ -20,14 +20,12 @@ export default function AuthorLayout({ children, content }: Props) {
           </h1>
         </div>
         <div className="flex justify-center pt-8 pb-8">
-          <div className="prose dark:prose-invert max-w-3xl text-center">
-            {children}
-          </div>
+          <div className="prose dark:prose-invert max-w-3xl text-center">{children}</div>
         </div>
 
         {/* <div className="items-start space-y-2 xl:grid xl:grid-cols-3 xl:gap-x-8 xl:space-y-0">
           {/* @manthan  */}
-          {/* <div className="flex flex-col items-center space-x-2 pt-8">
+        {/* <div className="flex flex-col items-center space-x-2 pt-8">
             {avatar && (
               <Image
                 src={avatar}
