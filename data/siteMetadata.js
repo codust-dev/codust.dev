@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Codust.dev',
   author: 'AI@Codust',
   headerTitle: 'Codust.dev',
-  description: 'Empowering developers to build the better future',
+  description: 'Empowering developers to shape the future',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.codust.dev/',
@@ -24,7 +24,7 @@ const siteMetadata = {
   // bluesky: 'https://bsky.app/',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
-  stickyNav: true,
+  stickyNav: false,
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
