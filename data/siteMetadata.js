@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Codust.dev',
   author: 'AI@Codust',
   headerTitle: 'Codust.dev',
-  description: 'Empowering developers to shape the future',
+  // description: 'Empowering developers to shape the future',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.codust.dev/',
