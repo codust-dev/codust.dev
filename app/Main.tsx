@@ -4,15 +4,39 @@ import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 3
 
 export default function Home({ posts }) {
   return (
     <>
+      {/* Hero Section with Background */}
+      <div className="relative mb-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-90" />
+        <div className="relative px-6 py-24 sm:px-8 sm:py-32">
+          <div className="mx-auto max-w-4xl space-y-6 text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+              Master Cutting-Edge Technology
+            </h1>
+            <p className="mx-auto max-w-2xl text-xl text-gray-200">
+              Choose learning path in Software Development, AI, and Robotics
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/learn"
+                className="rounded-md bg-white px-8 py-3 text-lg font-medium text-blue-900 hover:bg-gray-100"
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Blog Posts Section */}
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
-            Latest
+            Latest Blogs
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
             {siteMetadata.description}
