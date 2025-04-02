@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 
 interface TableOfContentsProps {
@@ -14,53 +15,62 @@ interface Heading {
 }
 
 export default function TableOfContents({ className }: TableOfContentsProps) {
+  const pathname = usePathname()
   const [activeId, setActiveId] = useState<string>('')
   const [headings, setHeadings] = useState<Heading[]>([])
   const headingElementsRef = useRef<{ [key: string]: IntersectionObserverEntry }>({})
 
+  // Clear headings when pathname changes
+  useEffect(() => {
+    setHeadings([])
+    setActiveId('')
+  }, [pathname])
+
   useEffect(() => {
     const getHeadings = () => {
-      const elements = Array.from(document.querySelectorAll('article h1, article h2, article h3, article h4'))
-        .map((element) => ({
-          id: element.id || '',
-          text: element.textContent || '',
-          level: Number(element.tagName.charAt(1)),
-        }))
-        .filter((heading) => heading.text)
-        .map((heading) => {
-          // If no id exists, create one from the text
-          if (!heading.id) {
-            heading.id = heading.text
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, '-')
-              .replace(/(^-|-$)/g, '')
-            
-            // Find the element by its text content and set the ID
-            const elements = Array.from(document.querySelectorAll(`h${heading.level}`))
-            const element = elements.find(el => el.textContent === heading.text)
-            if (element) {
-              element.id = heading.id
-            }
+      // Clear existing headings first
+      setHeadings([])
+      
+      // Get all headings from the current article, excluding h1
+      const article = document.querySelector('article')
+      if (!article) return
+
+      // Keep track of used titles to handle duplicates
+      const titleCounts: { [key: string]: number } = {}
+
+      const elements = Array.from(article.querySelectorAll('h2, h3, h4'))
+        .map((element) => {
+          const text = element.textContent || ''
+          
+          // Count occurrences of this title
+          titleCounts[text] = (titleCounts[text] || 0) + 1
+          const count = titleCounts[text]
+          
+          // Add a suffix for duplicates
+          const uniqueText = count > 1 ? `${text} ${count}` : text
+          
+          // Create a unique ID based on text content and pathname
+          const id = `${pathname}-${uniqueText.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
+          
+          // Set the ID on the element
+          element.id = id
+          
+          return {
+            id,
+            text: uniqueText,
+            level: Number(element.tagName.charAt(1)),
           }
-          return heading
         })
+        .filter(heading => heading.text)
+
       setHeadings(elements)
     }
 
-    getHeadings()
+    // Wait a bit for the content to be rendered
+    const timer = setTimeout(getHeadings, 100)
 
-    // Re-run when content changes
-    const observer = new MutationObserver(getHeadings)
-    const article = document.querySelector('article')
-    if (article) {
-      observer.observe(article, {
-        childList: true,
-        subtree: true,
-      })
-    }
-
-    return () => observer.disconnect()
-  }, [])
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   useEffect(() => {
     if (headings.length === 0) return
@@ -111,9 +121,8 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
             key={heading.id}
             className={clsx(
               'text-sm transition-colors duration-200',
-              heading.level === 1 ? 'pl-0' : 
-              heading.level === 2 ? 'pl-4' : 
-              heading.level === 3 ? 'pl-8' : 'pl-12',
+              heading.level === 2 ? 'pl-0' : 
+              heading.level === 3 ? 'pl-4' : 'pl-8',
               activeId === heading.id
                 ? 'text-primary-600 dark:text-primary-400'
                 : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'

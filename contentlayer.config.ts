@@ -149,7 +149,7 @@ export const Authors = defineDocumentType(() => ({
 
 export const LearningModule = defineDocumentType(() => ({
   name: 'LearningModule',
-  filePathPattern: 'learn/**/*.mdx',
+  filePathPattern: 'learn/*/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },

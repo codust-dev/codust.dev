@@ -1,10 +1,11 @@
 'use client'
 
 import { ReactNode, useState } from 'react'
-import { useParams } from 'next/navigation'
+import { usePathname, useRouter, useParams } from 'next/navigation'
 import ModuleSidebar from '@/components/learning/ModuleSidebar'
 import TableOfContents from '@/components/learning/TableOfContents'
-import { HiXMark, HiBars3 } from 'react-icons/hi2'
+import { HiXMark, HiBars3, HiArrowLeft, HiArrowRight } from 'react-icons/hi2'
+import { allLearningModules } from 'contentlayer/generated'
 import clsx from 'clsx'
 
 interface LayoutProps {
@@ -12,12 +13,50 @@ interface LayoutProps {
 }
 
 export default function ModuleLayout({ children }: LayoutProps) {
+  const pathname = usePathname()
+  const router = useRouter()
   const params = useParams()
   const moduleId = params.moduleId as string
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isTocOpen, setIsTocOpen] = useState(false)
 
   const moduleTitle = moduleId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  
+  // Get all chapters for this module, sorted by order
+  const chapters = allLearningModules
+    .filter((module) => module.module === moduleId && !module.draft)
+    .sort((a, b) => a.order - b.order)
+  
+  // Get current chapter index
+  const currentSlug = pathname.split('/').pop() || ''
+  const currentIndex = chapters.findIndex(chapter => chapter.chapter === currentSlug)
+  
+  // Check if we're on the module root page
+  const isModuleRoot = pathname === `/learn/${moduleId}`
+  
+  // Navigation functions
+  const goToNext = () => {
+    if (isModuleRoot && chapters.length > 0) {
+      // If on module root, go to first chapter
+      router.push(`/learn/${moduleId}/${chapters[0].chapter}`)
+    } else if (currentIndex < chapters.length - 1) {
+      // If in a chapter, go to next chapter
+      router.push(`/learn/${moduleId}/${chapters[currentIndex + 1].chapter}`)
+    }
+  }
+
+  const goToPrevious = () => {
+    if (isModuleRoot) {
+      // If on module root, do nothing (button will be disabled)
+      return
+    } else if (currentIndex === 0) {
+      // If on first chapter, go back to module root
+      router.push(`/learn/${moduleId}`)
+    } else {
+      // Otherwise go to previous chapter
+      router.push(`/learn/${moduleId}/${chapters[currentIndex - 1].chapter}`)
+    }
+  }
 
   return (
     <div className="relative min-h-screen bg-white dark:bg-black">
@@ -88,6 +127,35 @@ export default function ModuleLayout({ children }: LayoutProps) {
             <main className="px-4 py-8 lg:px-8 xl:px-12">
               <div className="mx-auto max-w-[55rem]">
                 {children}
+                {/* Navigation buttons */}
+                <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-8 dark:border-gray-800">
+                  <button
+                    onClick={goToPrevious}
+                    disabled={isModuleRoot}
+                    className={clsx(
+                      'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
+                      isModuleRoot
+                        ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
+                        : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                    )}
+                  >
+                    <HiArrowLeft className="h-5 w-5" />
+                    Previous
+                  </button>
+                  <button
+                    onClick={goToNext}
+                    disabled={!isModuleRoot && currentIndex === chapters.length - 1}
+                    className={clsx(
+                      'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
+                      (!isModuleRoot && currentIndex === chapters.length - 1)
+                        ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
+                        : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                    )}
+                  >
+                    Next
+                    <HiArrowRight className="h-5 w-5" />
+                  </button>
+                </div>
               </div>
             </main>
           </div>
