@@ -147,9 +147,39 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const LearningModule = defineDocumentType(() => ({
+  name: 'LearningModule',
+  filePathPattern: 'learn/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    module: { type: 'string', required: true },
+    chapter: { type: 'string', required: true },
+    order: { type: 'number', required: true },
+    summary: { type: 'string' },
+    prerequisites: { type: 'list', of: { type: 'string' } },
+    draft: { type: 'boolean' },
+  },
+  computedFields: {
+    ...computedFields,
+    structuredData: {
+      type: 'json',
+      resolve: (doc) => ({
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: doc.title,
+        datePublished: doc.date,
+        description: doc.summary,
+        url: `${siteMetadata.siteUrl}/learn/${doc.module}/${doc.chapter}`,
+      }),
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, LearningModule],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [
