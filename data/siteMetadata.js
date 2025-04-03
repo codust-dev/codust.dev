@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Codust.dev',
   author: 'AI@Codust',
   headerTitle: 'Codust.dev',
-  description: '',
+  description: 'Master cutting-edge technology with Codust.dev. Explore comprehensive learning paths in Software Development, AI, and Robotics. Access expert tutorials, hands-on projects, and stay updated with the latest tech trends.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.codust.dev/',
@@ -24,7 +24,13 @@ const siteMetadata = {
   // bluesky: 'https://bsky.app/',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
-  stickyNav: false,
+  stickyNav: true,
+  // SEO related
+  keywords: ['software development', 'artificial intelligence', 'robotics', 'programming', 'tutorials', 'learning', 'tech education'],
+  author: {
+    name: 'codust.dev',
+    url: 'https://www.codust.dev',
+  },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -63,9 +69,9 @@ const siteMetadata = {
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
+      repo: 'codust-dev/codust-comments', // Change this to your new public comments repository
       repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
+      category: 'Comments',
       categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
       mapping: 'pathname', // supported options: pathname, url, title
       reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
@@ -73,7 +79,7 @@ const siteMetadata = {
       metadata: '0',
       // theme example: light, dark, dark_dimmed, dark_high_contrast
       // transparent_dark, preferred_color_scheme, custom
-      theme: 'light',
+      theme: 'preferred_color_scheme',
       // theme when dark mode
       darkTheme: 'transparent_dark',
       // If the theme option above is set to 'custom`

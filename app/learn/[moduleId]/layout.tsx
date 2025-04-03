@@ -96,92 +96,66 @@ export default function ModuleLayout({ children }: LayoutProps) {
         </button>
       </div>
 
-      <div className="mx-auto max-w-[110rem]">
-        <div className="lg:flex lg:justify-between">
-          {/* Left sidebar */}
-          <div
-            className={clsx(
-              'fixed inset-y-0 left-0 z-30 w-72 transform overflow-y-auto bg-white transition-transform duration-300 ease-in-out dark:bg-black lg:relative lg:inset-auto lg:transform-none',
-              isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
-              'lg:w-[18rem] xl:w-[20rem]'
-            )}
-          >
-            <div className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-800 dark:bg-black lg:hidden">
-              <span className="text-sm font-medium">Navigation</span>
+      <div className="flex min-h-screen">
+        {/* Left sidebar */}
+        <div
+          className={clsx(
+            'fixed top-16 left-0 z-30 h-[calc(100vh-4rem)] w-72 transform overflow-y-auto bg-white transition-transform duration-300 ease-in-out dark:bg-black lg:sticky no-scrollbar',
+            isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0',
+            'lg:w-[18rem] xl:w-[20rem]'
+          )}
+        >
+          <div className="h-full py-6 pl-4 pr-2">
+            <ModuleSidebar moduleId={moduleId} className="border-r border-gray-200 dark:border-gray-800" />
+          </div>
+        </div>
+
+        {/* Main content */}
+        <main className="flex-1 overflow-y-auto px-4 py-8 lg:px-8 xl:px-12">
+          <div className="mx-auto max-w-[55rem]">
+            {children}
+            {/* Navigation buttons */}
+            <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-8 dark:border-gray-800">
               <button
-                type="button"
-                className="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-                onClick={() => setIsSidebarOpen(false)}
+                onClick={goToPrevious}
+                disabled={isModuleRoot}
+                className={clsx(
+                  'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
+                  isModuleRoot
+                    ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                )}
               >
-                <span className="sr-only">Close navigation</span>
-                <HiXMark className="h-6 w-6" />
+                <HiArrowLeft className="h-5 w-5" />
+                Previous
+              </button>
+              <button
+                onClick={goToNext}
+                disabled={!isModuleRoot && currentIndex === chapters.length - 1}
+                className={clsx(
+                  'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
+                  (!isModuleRoot && currentIndex === chapters.length - 1)
+                    ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
+                )}
+              >
+                Next
+                <HiArrowRight className="h-5 w-5" />
               </button>
             </div>
-            <div className="h-[calc(100vh-4rem)] py-6 pl-4 pr-2 lg:py-8">
-              <ModuleSidebar moduleId={moduleId} className="border-r border-gray-200 dark:border-gray-800" />
-            </div>
           </div>
+        </main>
 
-          {/* Main content */}
-          <div className="flex-1 min-w-0">
-            <main className="px-4 py-8 lg:px-8 xl:px-12">
-              <div className="mx-auto max-w-[55rem]">
-                {children}
-                {/* Navigation buttons */}
-                <div className="mt-8 flex items-center justify-between border-t border-gray-200 pt-8 dark:border-gray-800">
-                  <button
-                    onClick={goToPrevious}
-                    disabled={isModuleRoot}
-                    className={clsx(
-                      'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
-                      isModuleRoot
-                        ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
-                        : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
-                    )}
-                  >
-                    <HiArrowLeft className="h-5 w-5" />
-                    Previous
-                  </button>
-                  <button
-                    onClick={goToNext}
-                    disabled={!isModuleRoot && currentIndex === chapters.length - 1}
-                    className={clsx(
-                      'inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium',
-                      (!isModuleRoot && currentIndex === chapters.length - 1)
-                        ? 'cursor-not-allowed text-gray-400 dark:text-gray-600'
-                        : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800'
-                    )}
-                  >
-                    Next
-                    <HiArrowRight className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-            </main>
-          </div>
-
-          {/* Right sidebar - Table of contents */}
-          <div
-            className={clsx(
-              'fixed inset-y-0 right-0 z-30 w-72 transform bg-white transition-transform duration-300 ease-in-out dark:bg-black lg:relative lg:inset-auto lg:block lg:transform-none',
-              isTocOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0',
-              'lg:w-[18rem] xl:w-[20rem]'
-            )}
-          >
-            <div className="sticky top-0 z-10 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 dark:border-gray-800 dark:bg-black lg:hidden">
-              <span className="text-sm font-medium">On this page</span>
-              <button
-                type="button"
-                className="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
-                onClick={() => setIsTocOpen(false)}
-              >
-                <span className="sr-only">Close table of contents</span>
-                <HiXMark className="h-6 w-6" />
-              </button>
-            </div>
-            <div className="sticky top-0 h-screen py-6 pl-2 pr-4 lg:py-8">
-              <TableOfContents className="border-l border-gray-200 dark:border-gray-800" />
-            </div>
+        {/* Right sidebar - Table of contents */}
+        <div
+          className={clsx(
+            'fixed top-16 right-0 z-30 h-[calc(100vh-4rem)] w-72 transform bg-white transition-transform duration-300 ease-in-out dark:bg-black lg:sticky',
+            isTocOpen ? 'translate-x-0' : 'translate-x-full lg:translate-x-0',
+            'lg:w-[18rem] xl:w-[20rem]'
+          )}
+        >
+          <div className="h-full py-6 pl-2 pr-4">
+            <TableOfContents className="border-l border-gray-200 dark:border-gray-800" />
           </div>
         </div>
       </div>

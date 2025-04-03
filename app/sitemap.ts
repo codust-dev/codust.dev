@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { allBlogs } from 'contentlayer/generated'
+import { allBlogs, allLearningModules, allModuleStarters } from 'contentlayer/generated'
 import siteMetadata from '@/data/siteMetadata'
 
 export const dynamic = 'force-static'
@@ -12,12 +12,41 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((post) => ({
       url: `${siteUrl}/${post.path}`,
       lastModified: post.lastmod || post.date,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
     }))
 
-  const routes = ['', 'blog', 'projects', 'tags', 'learn', 'newsletter'].map((route) => ({
-    url: `${siteUrl}/${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
+  // Add learning module routes
+  const learningModuleRoutes = allLearningModules
+    .filter((module) => !module.draft)
+    .map((module) => ({
+      url: `${siteUrl}/learn/${module.module}/${module.chapter}`,
+      lastModified: module.date,
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+
+  // Add module starter routes
+  const moduleStarterRoutes = allModuleStarters.map((starter) => ({
+    url: `${siteUrl}/learn/${starter.moduleId}`,
+    lastModified: starter.date,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
   }))
 
-  return [...routes, ...blogRoutes]
+  const routes = [
+    { route: '', priority: 1.0 },
+    { route: 'blog', priority: 0.9 },
+    { route: 'projects', priority: 0.8 },
+    { route: 'tags', priority: 0.7 },
+    { route: 'learn', priority: 0.9 },
+    { route: 'newsletter', priority: 0.6 },
+  ].map(({ route, priority }) => ({
+    url: `${siteUrl}/${route}`,
+    lastModified: new Date().toISOString().split('T')[0],
+    changeFrequency: 'daily' as const,
+    priority,
+  }))
+
+  return [...routes, ...blogRoutes, ...learningModuleRoutes, ...moduleStarterRoutes]
 }

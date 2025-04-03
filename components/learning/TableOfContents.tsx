@@ -111,7 +111,7 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
   }
 
   return (
-    <nav className={clsx('sticky top-16 h-[calc(100vh-4rem)] p-6', className)}>
+    <nav className={clsx('h-full p-6', className)}>
       <h3 className="mb-4 text-sm font-semibold text-gray-900 dark:text-gray-100">
         On this page
       </h3>

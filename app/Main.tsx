@@ -18,7 +18,7 @@ export default function Home({ posts }) {
               Master Cutting-Edge Technology
             </h1>
             <p className="mx-auto max-w-2xl text-xl text-gray-200">
-              Choose learning path in Software Development, AI, and Robotics
+            Learn AI, Software Development, and more—practically, effectively, and the way they truly matter.
             </p>
             <div className="mt-8">
               <Link

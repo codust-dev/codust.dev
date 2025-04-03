@@ -177,9 +177,27 @@ export const LearningModule = defineDocumentType(() => ({
   },
 }))
 
+export const ModuleStarter = defineDocumentType(() => ({
+  name: 'ModuleStarter',
+  filePathPattern: 'learn/*-starter.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+  },
+  computedFields: {
+    ...computedFields,
+    moduleId: {
+      type: 'string',
+      resolve: (doc) => doc._raw.sourceFileName.replace('-starter.mdx', '')
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, LearningModule],
+  documentTypes: [Blog, Authors, LearningModule, ModuleStarter],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

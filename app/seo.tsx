@@ -10,22 +10,50 @@ interface PageSEOProps {
 }
 
 export function genPageMetadata({ title, description, image, ...rest }: PageSEOProps): Metadata {
+  const ogImage = image ? image : siteMetadata.socialBanner
+  const ogTitle = title.includes(siteMetadata.title) ? title : `${title} | ${siteMetadata.title}`
+  const ogDescription = description || siteMetadata.description
+
   return {
-    title,
-    description: description || siteMetadata.description,
+    title: ogTitle,
+    description: ogDescription,
+    metadataBase: new URL(siteMetadata.siteUrl),
+    alternates: {
+      canonical: './',
+    },
     openGraph: {
-      title: `${title} | ${siteMetadata.title}`,
-      description: description || siteMetadata.description,
+      title: ogTitle,
+      description: ogDescription,
       url: './',
       siteName: siteMetadata.title,
-      images: image ? [image] : [siteMetadata.socialBanner],
-      locale: 'en_US',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: ogTitle,
+        },
+      ],
+      locale: siteMetadata.locale,
       type: 'website',
     },
     twitter: {
-      title: `${title} | ${siteMetadata.title}`,
       card: 'summary_large_image',
-      images: image ? [image] : [siteMetadata.socialBanner],
+      title: ogTitle,
+      description: ogDescription,
+      images: [ogImage],
+      creator: siteMetadata.x?.replace('https://x.com/', '@'),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     ...rest,
   }
