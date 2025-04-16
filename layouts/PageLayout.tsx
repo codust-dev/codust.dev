@@ -7,7 +7,12 @@ interface Props {
   centerContent?: boolean
 }
 
-export default function PageLayout({ children, title, classname = '', centerContent = true }: Props) {
+export default function PageLayout({
+  children,
+  title,
+  classname = '',
+  centerContent = true,
+}: Props) {
   return (
     <>
       <div className={`divide-y divide-gray-200 dark:divide-gray-700 ${classname}`}>
@@ -17,7 +22,9 @@ export default function PageLayout({ children, title, classname = '', centerCont
           </h1>
         </div>
         <div className={`pt-8 pb-8 ${centerContent ? 'flex justify-center' : ''}`}>
-          <div className={`prose dark:prose-invert max-w-3xl ${centerContent ? 'text-center' : ''}`}>
+          <div
+            className={`prose dark:prose-invert max-w-3xl ${centerContent ? 'text-center' : ''}`}
+          >
             {children}
           </div>
         </div>

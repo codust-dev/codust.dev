@@ -30,7 +30,7 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
     const getHeadings = () => {
       // Clear existing headings first
       setHeadings([])
-      
+
       // Get all headings from the current article, excluding h1
       const article = document.querySelector('article')
       if (!article) return
@@ -41,27 +41,27 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
       const elements = Array.from(article.querySelectorAll('h2, h3, h4'))
         .map((element) => {
           const text = element.textContent || ''
-          
+
           // Count occurrences of this title
           titleCounts[text] = (titleCounts[text] || 0) + 1
           const count = titleCounts[text]
-          
+
           // Add a suffix for duplicates
           const uniqueText = count > 1 ? `${text} ${count}` : text
-          
+
           // Create a unique ID based on text content and pathname
           const id = `${pathname}-${uniqueText.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
-          
+
           // Set the ID on the element
           element.id = id
-          
+
           return {
             id,
             text: uniqueText,
             level: Number(element.tagName.charAt(1)),
           }
         })
-        .filter(heading => heading.text)
+        .filter((heading) => heading.text)
 
       setHeadings(elements)
     }
@@ -112,17 +112,14 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
 
   return (
     <nav className={clsx('h-full p-6', className)}>
-      <h3 className="mb-4 text-sm font-semibold text-gray-900 dark:text-gray-100">
-        On this page
-      </h3>
+      <h3 className="mb-4 text-sm font-semibold text-gray-900 dark:text-gray-100">On this page</h3>
       <ul className="space-y-2.5">
         {headings.map((heading) => (
           <li
             key={heading.id}
             className={clsx(
               'text-sm transition-colors duration-200',
-              heading.level === 2 ? 'pl-0' : 
-              heading.level === 3 ? 'pl-4' : 'pl-8',
+              heading.level === 2 ? 'pl-0' : heading.level === 3 ? 'pl-4' : 'pl-8',
               activeId === heading.id
                 ? 'text-primary-600 dark:text-primary-400'
                 : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100'
@@ -146,4 +143,4 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
       </ul>
     </nav>
   )
-} 
+}

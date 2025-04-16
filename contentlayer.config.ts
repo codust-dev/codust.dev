@@ -190,7 +190,7 @@ export const ModuleStarter = defineDocumentType(() => ({
     ...computedFields,
     moduleId: {
       type: 'string',
-      resolve: (doc) => doc._raw.sourceFileName.replace('-starter.mdx', '')
+      resolve: (doc) => doc._raw.sourceFileName.replace('-starter.mdx', ''),
     },
   },
 }))

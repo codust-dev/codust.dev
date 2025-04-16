@@ -13,34 +13,34 @@ export default function NewsletterPage() {
   return (
     <>
       <PageLayout title="Newsletter">
-        <div className="flex flex-col items-center max-w-3xl mx-auto space-y-8 text-center">
+        <div className="mx-auto flex max-w-3xl flex-col items-center space-y-8 text-center">
           <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-            Stay updated with the latest insights in software development, AI, and emerging technologies 
-            through our weekly newsletter.
+            Stay updated with the latest insights in software development, AI, and emerging
+            technologies through our weekly newsletter.
           </p>
 
           <div className="w-full space-y-8 pt-8">
             {/* Subscribe Section */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
               <div className="flex flex-col items-center p-8">
-                <div className="bg-[#4051B5] rounded-full p-4 mb-3">
+                <div className="mb-3 rounded-full bg-[#4051B5] p-4">
                   <FaNewspaper className="text-4xl text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-6">Subscribe Now</h3>
+                <h3 className="mb-6 text-2xl font-bold">Subscribe Now</h3>
                 <div className="w-full max-w-md">
                   <NewsletterForm />
                 </div>
               </div>
             </div>
-            
+
             {/* Archive Section */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800">
               <div className="flex flex-col items-center p-8">
-                <div className="bg-[#4051B5] rounded-full p-4 mb-3">
+                <div className="mb-3 rounded-full bg-[#4051B5] p-4">
                   <FaArchive className="text-4xl text-white" />
                 </div>
-                <h3 className="text-2xl font-bold mb-6">Newsletter Archive</h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                <h3 className="mb-6 text-2xl font-bold">Newsletter Archive</h3>
+                <p className="mb-6 text-gray-700 dark:text-gray-300">
                   Browse through our previous newsletters and catch up on past content.
                 </p>
                 <ArchiveButton />

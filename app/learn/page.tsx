@@ -4,13 +4,14 @@ import { genPageMetadata } from 'app/seo'
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { courseModules } from '@/data/courseData'
 import Link from '@/components/Link'
+import Image from 'next/image'
 
 export const metadata = genPageMetadata({ title: 'Learn' })
 
 export default function LearnPage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8">
-      <h1 className="mb-8 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
+      <h1 className="mb-8 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
         Learning Paths
       </h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -21,16 +22,18 @@ export default function LearnPage() {
             className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:scale-105 dark:bg-gray-800"
           >
             {/* Course Thumbnail */}
-            <div className="aspect-video w-full">
-              <img
+            <div className="relative aspect-video w-full">
+              <Image
                 src={module.thumbnail}
                 alt={module.title}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
             {/* Course Info */}
             <div className="p-6">
-              <module.icon className="mb-4 text-3xl text-primary-600 dark:text-primary-400" />
+              <module.icon className="text-primary-600 dark:text-primary-400 mb-4 text-3xl" />
               <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100">
                 {module.title}
               </h3>

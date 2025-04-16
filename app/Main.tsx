@@ -15,10 +15,10 @@ export default function Home({ posts }) {
         <div className="relative px-6 py-24 sm:px-8 sm:py-32">
           <div className="mx-auto max-w-4xl space-y-6 text-center">
             <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Master Cutting-Edge Technology
+              Develop Cutting-Edge Technology
             </h1>
             <p className="mx-auto max-w-2xl text-xl text-gray-200">
-            Learn AI, Software Development, and more—practically, effectively, and the way they truly matter.
+              Learn the way it truly matters and develop fast.
             </p>
             <div className="mt-8">
               <Link
@@ -38,9 +38,6 @@ export default function Home({ posts }) {
           <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-gray-100">
             Latest Blogs
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            {siteMetadata.description}
-          </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}

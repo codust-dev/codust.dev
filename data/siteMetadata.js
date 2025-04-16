@@ -1,9 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Codust.dev',
-  author: 'AI@Codust',
+  author: 'Codust.dev',
   headerTitle: 'Codust.dev',
-  description: 'Master cutting-edge technology with Codust.dev. Explore comprehensive learning paths in Software Development, AI, and Robotics. Access expert tutorials, hands-on projects, and stay updated with the latest tech trends.',
+  description:
+    'Develop cutting-edge technology and stay updated on the latest tech trends with Codust.dev',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.codust.dev/',
@@ -12,11 +13,11 @@ const siteMetadata = {
   // socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'contact@codust.dev',
-  // github: 'https://github.com/codust-dev',
+  github: 'https://github.com/codust-dev',
   x: 'https://x.com/codust_dev',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
-  youtube: 'https://www.youtube.com/@codust_dev',
+  // youtube: 'https://www.youtube.com/@codust_dev',
   // linkedin: 'https://www.linkedin.com',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
@@ -26,11 +27,15 @@ const siteMetadata = {
   // set to true if you want a navbar fixed to the top
   stickyNav: true,
   // SEO related
-  keywords: ['software development', 'artificial intelligence', 'robotics', 'programming', 'tutorials', 'learning', 'tech education'],
-  author: {
-    name: 'codust.dev',
-    url: 'https://www.codust.dev',
-  },
+  keywords: [
+    'software development',
+    'artificial intelligence',
+    'robotics',
+    'programming',
+    'tutorials',
+    'learning',
+    'tech education',
+  ],
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

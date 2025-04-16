@@ -20,7 +20,7 @@ export default function ChapterPage({ params }: PageProps) {
   }
 
   return (
-    <article className="prose prose-gray max-w-none dark:prose-invert">
+    <article className="prose prose-gray dark:prose-invert max-w-none">
       <div className="space-y-1 pb-8">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
           {chapter.title}
@@ -32,4 +32,4 @@ export default function ChapterPage({ params }: PageProps) {
       <MDXLayoutRenderer code={chapter.body.code} />
     </article>
   )
-} 
+}

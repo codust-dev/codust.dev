@@ -2,7 +2,7 @@ import Script from 'next/script'
 import siteMetadata from '@/data/siteMetadata'
 
 interface JsonLdProps {
-  data: Record<string, any>
+  data: Record<string, unknown>
 }
 
 export default function JsonLd({ data }: JsonLdProps) {
@@ -19,7 +19,7 @@ export default function JsonLd({ data }: JsonLdProps) {
 export function generateBlogJsonLd(post) {
   const { title, date, description, path, tags } = post
   const url = `${siteMetadata.siteUrl}${path}`
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -73,4 +73,4 @@ export function generateWebsiteJsonLd() {
       'query-input': 'required name=search_term_string',
     },
   }
-} 
+}

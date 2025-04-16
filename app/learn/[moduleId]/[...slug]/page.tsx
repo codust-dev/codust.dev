@@ -42,9 +42,9 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   }
 
   return (
-    <article className="prose max-w-none dark:prose-invert">
+    <article className="prose dark:prose-invert max-w-none">
       <h1>{chapterData.title}</h1>
       <MDXLayoutRenderer code={chapterData.body.code} />
     </article>
   )
-} 
+}

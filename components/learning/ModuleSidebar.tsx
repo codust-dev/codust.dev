@@ -19,7 +19,10 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
     .filter((module) => module.module === moduleId && !module.draft)
     .sort((a, b) => a.order - b.order)
 
-  const moduleTitle = moduleId.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+  const moduleTitle = moduleId
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 
   return (
     <nav className={clsx('flex-shrink-0 overflow-y-auto p-6', className)}>
@@ -30,7 +33,7 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
             'block text-sm font-semibold transition-colors',
             isModuleRoot
               ? 'text-primary-600 dark:text-primary-400'
-              : 'text-gray-900 hover:text-primary-600 dark:text-gray-100 dark:hover:text-primary-400'
+              : 'hover:text-primary-600 dark:hover:text-primary-400 text-gray-900 dark:text-gray-100'
           )}
         >
           {moduleTitle}
@@ -60,4 +63,4 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
       </div>
     </nav>
   )
-} 
+}

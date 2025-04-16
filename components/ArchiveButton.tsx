@@ -4,9 +4,9 @@ export default function ArchiveButton() {
   return (
     <button
       onClick={() => window.open('https://newsletter.codust.dev/', '_blank')}
-      className="bg-[#4051B5] text-white no-underline px-8 py-3 rounded-lg font-semibold hover:bg-[#2D3A8C] transition-colors"
+      className="rounded-lg bg-[#4051B5] px-8 py-3 font-semibold text-white no-underline transition-colors hover:bg-[#2D3A8C]"
     >
       View Archive
     </button>
   )
-} 
+}

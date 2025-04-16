@@ -12,33 +12,31 @@ interface ModulePageProps {
 }
 
 export async function generateMetadata({ params }: ModulePageProps) {
-  const module = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
-  if (!module) return {}
+  const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
+  if (!courseModule) return {}
 
   return genPageMetadata({
-    title: module.title,
-    description: module.description,
+    title: courseModule.title,
+    description: courseModule.description,
   })
 }
 
 export default function ModulePage({ params }: ModulePageProps) {
-  const module = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
-  
-  if (!module) {
+  const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
+
+  if (!courseModule) {
     notFound()
   }
 
-  const starterContent = allModuleStarters.find(
-    (starter) => starter.moduleId === params.moduleId
-  )
+  const starterContent = allModuleStarters.find((starter) => starter.moduleId === params.moduleId)
 
   if (!starterContent) {
     notFound()
   }
 
   return (
-    <article className="prose max-w-none dark:prose-invert">
+    <article className="prose dark:prose-invert max-w-none">
       <MDXLayoutRenderer code={starterContent.body.code} />
     </article>
   )
-} 
+}
