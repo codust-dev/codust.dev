@@ -5,13 +5,14 @@ import { courseModules } from '@/data/courseData'
 import { allModuleStarters } from 'contentlayer/generated'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
-interface ModulePageProps {
-  params: {
+type ModulePageProps = {
+  params: Promise<{
     moduleId: string
-  }
+  }>
 }
 
-export async function generateMetadata({ params }: ModulePageProps) {
+export async function generateMetadata(props: ModulePageProps) {
+  const params = await props.params
   const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
   if (!courseModule) return {}
 
@@ -21,7 +22,8 @@ export async function generateMetadata({ params }: ModulePageProps) {
   })
 }
 
-export default function ModulePage({ params }: ModulePageProps) {
+export default async function ModulePage(props: ModulePageProps) {
+  const params = await props.params
   const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
 
   if (!courseModule) {

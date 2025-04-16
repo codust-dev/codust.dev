@@ -1,50 +1,35 @@
 import { notFound } from 'next/navigation'
-import { allCoreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/seo'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { Metadata } from 'next'
 import { courseModules } from '@/data/courseData'
 
-interface ChapterPageProps {
-  params: {
+// Define the correct type for Next.js page props
+type PageProps = {
+  params: Promise<{
     moduleId: string
     slug: string[]
-  }
+  }>
 }
 
-async function getChapterData(moduleId: string, slug: string[]) {
-  // This will be replaced with actual contentlayer data
-  // For now, return dummy data
-  return {
-    title: 'Introduction to Machine Learning',
-    body: {
-      code: '# Introduction\n\nWelcome to the machine learning course...',
-    },
-  }
-}
+// Make the component async to handle Promise-based params
+export default async function Page(props: PageProps) {
+  // Await the params since they're a Promise
+  const params = await props.params
+  const { moduleId, slug } = params
 
-export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
-  const chapterData = await getChapterData(params.moduleId, params.slug)
-  if (!chapterData) return {}
+  // Find the module
+  const courseModule = courseModules.find((m) => m.link === `/learn/${moduleId}`)
 
-  return genPageMetadata({
-    title: chapterData.title,
-    description: `Learn about ${chapterData.title} in our comprehensive guide.`,
-  })
-}
-
-export default async function ChapterPage({ params }: ChapterPageProps) {
-  const chapterData = await getChapterData(params.moduleId, params.slug)
-
-  if (!chapterData) {
+  if (!courseModule) {
     notFound()
   }
 
   return (
-    <article className="prose dark:prose-invert max-w-none">
-      <h1>{chapterData.title}</h1>
-      <MDXLayoutRenderer code={chapterData.body.code} />
-    </article>
+    <div className="mx-auto max-w-4xl px-4 py-8">
+      <h1 className="mb-8 text-3xl font-bold">{courseModule.title}</h1>
+      <div className="prose dark:prose-invert max-w-none">
+        <p>Welcome to the {courseModule.title} course!</p>
+        <p>This is module {moduleId}</p>
+        <p>Current path: {slug.join('/')}</p>
+      </div>
+    </div>
   )
 }
