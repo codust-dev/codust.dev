@@ -1,9 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: 'Codust.dev',
-  author: 'AI@Codust',
+  author: 'Codust.dev',
   headerTitle: 'Codust.dev',
-  description: '',
+  description:
+    'Develop cutting-edge technology and stay updated on the latest tech trends with Codust.dev',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.codust.dev/',
@@ -12,11 +13,11 @@ const siteMetadata = {
   // socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   // mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'contact@codust.dev',
-  // github: 'https://github.com/codust-dev',
+  github: 'https://github.com/codust-dev',
   x: 'https://x.com/codust_dev',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
-  youtube: 'https://www.youtube.com/@codust_dev',
+  // youtube: 'https://www.youtube.com/@codust_dev',
   // linkedin: 'https://www.linkedin.com',
   // threads: 'https://www.threads.net',
   // instagram: 'https://www.instagram.com',
@@ -24,7 +25,17 @@ const siteMetadata = {
   // bluesky: 'https://bsky.app/',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
-  stickyNav: false,
+  stickyNav: true,
+  // SEO related
+  keywords: [
+    'software development',
+    'artificial intelligence',
+    'robotics',
+    'programming',
+    'tutorials',
+    'learning',
+    'tech education',
+  ],
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -63,9 +74,9 @@ const siteMetadata = {
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
-      repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
+      repo: 'codust-dev/codust-comments', // Change this to your new public comments repository
       repositoryId: process.env.NEXT_PUBLIC_GISCUS_REPOSITORY_ID,
-      category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
+      category: 'Comments',
       categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID,
       mapping: 'pathname', // supported options: pathname, url, title
       reactions: '1', // Emoji reactions: 1 = enable / 0 = disable
@@ -73,7 +84,7 @@ const siteMetadata = {
       metadata: '0',
       // theme example: light, dark, dark_dimmed, dark_high_contrast
       // transparent_dark, preferred_color_scheme, custom
-      theme: 'light',
+      theme: 'preferred_color_scheme',
       // theme when dark mode
       darkTheme: 'transparent_dark',
       // If the theme option above is set to 'custom`
