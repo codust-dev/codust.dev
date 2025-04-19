@@ -5,6 +5,8 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import { Fragment, useState, useEffect, useRef } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import ThemeSwitch from './ThemeSwitch'
+import DiscordButton from './DiscordButton'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -82,6 +84,10 @@ const MobileNav = () => {
                     {link.title}
                   </Link>
                 ))}
+                <div className="mt-4 flex flex-col gap-8">
+                  <DiscordButton />
+                  <ThemeSwitch />
+                </div>
               </nav>
 
               <button
