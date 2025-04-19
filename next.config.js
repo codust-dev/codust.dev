@@ -1,5 +1,4 @@
 const { withContentlayer } = require('next-contentlayer2')
-const { setupDevPlatform } = require('@cloudflare/next-on-pages/next-dev')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -62,12 +61,7 @@ const unoptimized = process.env.UNOPTIMIZED ? true : undefined
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
-module.exports = async () => {
-  // Setup Cloudflare Pages development platform
-  if (process.env.NODE_ENV === 'development') {
-    await setupDevPlatform()
-  }
-
+module.exports = () => {
   const plugins = [withContentlayer, withBundleAnalyzer]
   return plugins.reduce((acc, next) => next(acc), {
     output,
