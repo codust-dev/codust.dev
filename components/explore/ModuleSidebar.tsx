@@ -8,9 +8,10 @@ import { allExploreModules } from 'contentlayer/generated'
 interface ModuleSidebarProps {
   moduleId: string
   className?: string
+  onNavigate?: () => void
 }
 
-export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProps) {
+export default function ModuleSidebar({ moduleId, className, onNavigate }: ModuleSidebarProps) {
   const pathname = usePathname()
   const isModuleRoot = pathname === `/explore/${moduleId}`
 
@@ -35,6 +36,7 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
               ? 'text-primary-600 dark:text-primary-400'
               : 'hover:text-primary-600 dark:hover:text-primary-400 text-gray-900 dark:text-gray-100'
           )}
+          onClick={onNavigate}
         >
           {moduleTitle}
         </Link>
@@ -54,6 +56,7 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
                     ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/50 dark:text-primary-400'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-100'
                 )}
+                onClick={onNavigate}
               >
                 {chapter.title}
               </Link>

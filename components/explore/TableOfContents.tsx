@@ -6,6 +6,7 @@ import clsx from 'clsx'
 
 interface TableOfContentsProps {
   className?: string
+  onNavigate?: () => void
 }
 
 interface Heading {
@@ -14,7 +15,7 @@ interface Heading {
   level: number
 }
 
-export default function TableOfContents({ className }: TableOfContentsProps) {
+export default function TableOfContents({ className, onNavigate }: TableOfContentsProps) {
   const pathname = usePathname()
   const [activeId, setActiveId] = useState<string>('')
   const [headings, setHeadings] = useState<Heading[]>([])
@@ -134,6 +135,7 @@ export default function TableOfContents({ className }: TableOfContentsProps) {
                   block: 'start',
                 })
                 setActiveId(heading.id)
+                onNavigate?.()
               }}
             >
               {heading.text}

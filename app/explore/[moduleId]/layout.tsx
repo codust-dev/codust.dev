@@ -83,7 +83,7 @@ export default function ModuleLayout({ children }: LayoutProps) {
       )}
 
       {/* Mobile header */}
-      <div className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 lg:hidden dark:border-gray-800 dark:bg-black">
+      <div className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-2 lg:hidden dark:border-gray-800 dark:bg-black">
         <button
           type="button"
           className="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
@@ -123,6 +123,7 @@ export default function ModuleLayout({ children }: LayoutProps) {
             <ModuleSidebar
               moduleId={moduleId}
               className="border-r border-gray-200 dark:border-gray-800"
+              onNavigate={() => setIsSidebarOpen(false)}
             />
           </div>
         </div>
@@ -172,7 +173,10 @@ export default function ModuleLayout({ children }: LayoutProps) {
           )}
         >
           <div className="h-full py-6 pr-4 pl-2">
-            <TableOfContents className="border-l border-gray-200 dark:border-gray-800" />
+            <TableOfContents 
+              className="border-l border-gray-200 dark:border-gray-800" 
+              onNavigate={() => setIsTocOpen(false)}
+            />
           </div>
         </div>
       </div>
