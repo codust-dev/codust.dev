@@ -13,7 +13,7 @@ type ModulePageProps = {
 
 export async function generateMetadata(props: ModulePageProps) {
   const params = await props.params
-  const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
+  const courseModule = courseModules.find((m) => m.link === `/explore/${params.moduleId}`)
   if (!courseModule) return {}
 
   return genPageMetadata({
@@ -24,7 +24,7 @@ export async function generateMetadata(props: ModulePageProps) {
 
 export default async function ModulePage(props: ModulePageProps) {
   const params = await props.params
-  const courseModule = courseModules.find((m) => m.link === `/learn/${params.moduleId}`)
+  const courseModule = courseModules.find((m) => m.link === `/explore/${params.moduleId}`)
 
   if (!courseModule) {
     notFound()

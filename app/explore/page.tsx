@@ -6,13 +6,13 @@ import { courseModules } from '@/data/courseData'
 import Link from '@/components/Link'
 import Image from 'next/image'
 
-export const metadata = genPageMetadata({ title: 'Learn' })
+export const metadata = genPageMetadata({ title: 'Explore' })
 
-export default function LearnPage() {
+export default function ExplorePage() {
   return (
     <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8">
       <h1 className="mb-8 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl dark:text-gray-100">
-        Learning Paths
+        Topics
       </h1>
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {courseModules.map((module) => (

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from '@/components/Link'
 import clsx from 'clsx'
-import { allLearningModules } from 'contentlayer/generated'
+import { allExploreModules } from 'contentlayer/generated'
 
 interface ModuleSidebarProps {
   moduleId: string
@@ -12,10 +12,10 @@ interface ModuleSidebarProps {
 
 export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProps) {
   const pathname = usePathname()
-  const isModuleRoot = pathname === `/learn/${moduleId}`
+  const isModuleRoot = pathname === `/explore/${moduleId}`
 
   // Get all chapters for this module, sorted by order
-  const chapters = allLearningModules
+  const chapters = allExploreModules
     .filter((module) => module.module === moduleId && !module.draft)
     .sort((a, b) => a.order - b.order)
 
@@ -28,7 +28,7 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
     <nav className={clsx('flex-shrink-0 overflow-y-auto p-6', className)}>
       <div className="mb-8">
         <Link
-          href={`/learn/${moduleId}`}
+          href={`/explore/${moduleId}`}
           className={clsx(
             'block text-sm font-semibold transition-colors',
             isModuleRoot
@@ -41,13 +41,13 @@ export default function ModuleSidebar({ moduleId, className }: ModuleSidebarProp
       </div>
       <div className="space-y-2">
         {chapters.map((chapter) => {
-          const isActive = pathname === `/learn/${moduleId}/${chapter.chapter}`
+          const isActive = pathname === `/explore/${moduleId}/${chapter.chapter}`
           // Create a unique key using module and chapter
           const uniqueKey = `${moduleId}-${chapter.chapter}-${chapter._id}`
           return (
             <div key={uniqueKey}>
               <Link
-                href={`/learn/${moduleId}/${chapter.chapter}`}
+                href={`/explore/${moduleId}/${chapter.chapter}`}
                 className={clsx(
                   'block rounded-md px-3 py-2 text-sm transition-colors',
                   isActive

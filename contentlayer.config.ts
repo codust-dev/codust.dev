@@ -147,9 +147,9 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
-export const LearningModule = defineDocumentType(() => ({
-  name: 'LearningModule',
-  filePathPattern: 'learn/*/*.mdx',
+export const ExploreModule = defineDocumentType(() => ({
+  name: 'ExploreModule',
+  filePathPattern: 'explore/*/*.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -171,7 +171,7 @@ export const LearningModule = defineDocumentType(() => ({
         headline: doc.title,
         datePublished: doc.date,
         description: doc.summary,
-        url: `${siteMetadata.siteUrl}/learn/${doc.module}/${doc.chapter}`,
+        url: `${siteMetadata.siteUrl}/explore/${doc.module}/${doc.chapter}`,
       }),
     },
   },
@@ -179,7 +179,7 @@ export const LearningModule = defineDocumentType(() => ({
 
 export const ModuleStarter = defineDocumentType(() => ({
   name: 'ModuleStarter',
-  filePathPattern: 'learn/*-starter.mdx',
+  filePathPattern: 'explore/*-starter.mdx',
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -197,7 +197,7 @@ export const ModuleStarter = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors, LearningModule, ModuleStarter],
+  documentTypes: [Blog, Authors, ExploreModule, ModuleStarter],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

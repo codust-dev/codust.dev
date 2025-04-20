@@ -2,7 +2,7 @@ import PageLayout from '@/layouts/PageLayout'
 import { genPageMetadata } from 'app/seo'
 import { FaBrain, FaNewspaper, FaRocket } from 'react-icons/fa'
 
-export const metadata = genPageMetadata({ title: 'About Us' })
+export const metadata = genPageMetadata({ title: 'About' })
 
 export default function AboutUsPage() {
   return (
@@ -24,7 +24,7 @@ export default function AboutUsPage() {
               <FaBrain className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Build Cutting-Edge AI</h3>
               <p className="text-center">
-                Master industrial-grade AI development through hands-on projects. Learn to build
+                Master industrial-grade AI development through hands-on projects. Build
                 production-ready ML models, implement MLOps practices, and deploy scalable AI
                 solutions with practical, real-world guidance.
               </p>

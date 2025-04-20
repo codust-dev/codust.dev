@@ -16,7 +16,7 @@ export default async function Page(props: PageProps) {
   const { moduleId, slug } = params
 
   // Find the module
-  const courseModule = courseModules.find((m) => m.link === `/learn/${moduleId}`)
+  const courseModule = courseModules.find((m) => m.link === `/explore/${moduleId}`)
 
   if (!courseModule) {
     notFound()

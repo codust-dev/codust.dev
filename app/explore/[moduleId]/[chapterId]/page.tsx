@@ -1,4 +1,4 @@
-import { allLearningModules } from 'contentlayer/generated'
+import { allExploreModules } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
@@ -12,7 +12,7 @@ type PageProps = {
 export default async function ChapterPage(props: PageProps) {
   const params = await props.params
   const { moduleId, chapterId } = params
-  const chapter = allLearningModules.find(
+  const chapter = allExploreModules.find(
     (module) => module.module === moduleId && module.chapter === chapterId
   )
 
