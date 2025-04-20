@@ -2,7 +2,7 @@ import PageLayout from '@/layouts/PageLayout'
 import { genPageMetadata } from 'app/seo'
 import { FaBrain, FaNewspaper, FaRocket } from 'react-icons/fa'
 
-export const metadata = genPageMetadata({ title: 'About Us' })
+export const metadata = genPageMetadata({ title: 'About' })
 
 export default function AboutUsPage() {
   return (
@@ -13,10 +13,6 @@ export default function AboutUsPage() {
             Welcome to <span className="text-primary font-bold">codust.dev</span> — where we focus
             on cutting-edge AI development and help you stay ahead with the latest tech trends.
           </p>
-          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            Our mission is to empower AI developers with practical, production-ready implementations
-            and keep you informed about the rapidly evolving AI landscape.
-          </p>
 
           <div className="grid grid-cols-1 gap-6 pt-8 md:grid-cols-2">
             {/* Card 1 - AI Development */}
@@ -24,9 +20,8 @@ export default function AboutUsPage() {
               <FaBrain className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Build Cutting-Edge AI</h3>
               <p className="text-center">
-                Master industrial-grade AI development through hands-on projects. Learn to build
-                production-ready ML models, implement MLOps practices, and deploy scalable AI
-                solutions with practical, real-world guidance.
+                Master advanced AI development. Build production-ready machine learning models, and
+                deploy scalable AI solutions with practical, real-world guidance.
               </p>
             </div>
 

@@ -18,11 +18,11 @@ export default function Home({ posts }) {
               Develop Cutting-Edge Technology
             </h1>
             <p className="mx-auto max-w-2xl text-xl text-gray-200">
-              Learn the way it truly matters and develop fast.
+              Understand the way it truly matters and develop fast.
             </p>
             <div className="mt-8">
               <Link
-                href="/learn"
+                href="/explore"
                 className="rounded-md bg-white px-8 py-3 text-lg font-medium text-blue-900 hover:bg-gray-100"
               >
                 Get Started

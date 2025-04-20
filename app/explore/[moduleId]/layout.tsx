@@ -2,10 +2,10 @@
 
 import { ReactNode, useState } from 'react'
 import { usePathname, useRouter, useParams } from 'next/navigation'
-import ModuleSidebar from '@/components/learning/ModuleSidebar'
-import TableOfContents from '@/components/learning/TableOfContents'
+import ModuleSidebar from '@/components/explore/ModuleSidebar'
+import TableOfContents from '@/components/explore/TableOfContents'
 import { HiXMark, HiBars3, HiArrowLeft, HiArrowRight } from 'react-icons/hi2'
-import { allLearningModules } from 'contentlayer/generated'
+import { allExploreModules } from 'contentlayer/generated'
 import clsx from 'clsx'
 
 interface LayoutProps {
@@ -26,7 +26,7 @@ export default function ModuleLayout({ children }: LayoutProps) {
     .join(' ')
 
   // Get all chapters for this module, sorted by order
-  const chapters = allLearningModules
+  const chapters = allExploreModules
     .filter((module) => module.module === moduleId && !module.draft)
     .sort((a, b) => a.order - b.order)
 
@@ -35,16 +35,16 @@ export default function ModuleLayout({ children }: LayoutProps) {
   const currentIndex = chapters.findIndex((chapter) => chapter.chapter === currentSlug)
 
   // Check if we're on the module root page
-  const isModuleRoot = pathname === `/learn/${moduleId}`
+  const isModuleRoot = pathname === `/explore/${moduleId}`
 
   // Navigation functions
   const goToNext = () => {
     if (isModuleRoot && chapters.length > 0) {
       // If on module root, go to first chapter
-      router.push(`/learn/${moduleId}/${chapters[0].chapter}`)
+      router.push(`/explore/${moduleId}/${chapters[0].chapter}`)
     } else if (currentIndex < chapters.length - 1) {
       // If in a chapter, go to next chapter
-      router.push(`/learn/${moduleId}/${chapters[currentIndex + 1].chapter}`)
+      router.push(`/explore/${moduleId}/${chapters[currentIndex + 1].chapter}`)
     }
   }
 
@@ -54,10 +54,10 @@ export default function ModuleLayout({ children }: LayoutProps) {
       return
     } else if (currentIndex === 0) {
       // If on first chapter, go back to module root
-      router.push(`/learn/${moduleId}`)
+      router.push(`/explore/${moduleId}`)
     } else {
       // Otherwise go to previous chapter
-      router.push(`/learn/${moduleId}/${chapters[currentIndex - 1].chapter}`)
+      router.push(`/explore/${moduleId}/${chapters[currentIndex - 1].chapter}`)
     }
   }
 
@@ -83,7 +83,7 @@ export default function ModuleLayout({ children }: LayoutProps) {
       )}
 
       {/* Mobile header */}
-      <div className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-4 lg:hidden dark:border-gray-800 dark:bg-black">
+      <div className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-gray-200 bg-white px-2 lg:hidden dark:border-gray-800 dark:bg-black">
         <button
           type="button"
           className="rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
@@ -123,6 +123,7 @@ export default function ModuleLayout({ children }: LayoutProps) {
             <ModuleSidebar
               moduleId={moduleId}
               className="border-r border-gray-200 dark:border-gray-800"
+              onNavigate={() => setIsSidebarOpen(false)}
             />
           </div>
         </div>
@@ -172,7 +173,10 @@ export default function ModuleLayout({ children }: LayoutProps) {
           )}
         >
           <div className="h-full py-6 pr-4 pl-2">
-            <TableOfContents className="border-l border-gray-200 dark:border-gray-800" />
+            <TableOfContents
+              className="border-l border-gray-200 dark:border-gray-800"
+              onNavigate={() => setIsTocOpen(false)}
+            />
           </div>
         </div>
       </div>

@@ -15,8 +15,8 @@ export default function NewsletterPage() {
       <PageLayout title="Newsletter">
         <div className="mx-auto flex max-w-3xl flex-col items-center space-y-8 text-center">
           <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-            Stay updated with the latest insights in software development, AI, and emerging
-            technologies through our weekly newsletter.
+            Stay updated with the latest insights in artificial intelligence, machine learning, and
+            AI-driven technologies through our weekly newsletter.
           </p>
 
           <div className="w-full space-y-8 pt-8">
@@ -41,7 +41,7 @@ export default function NewsletterPage() {
                 </div>
                 <h3 className="mb-6 text-2xl font-bold">Newsletter Archive</h3>
                 <p className="mb-6 text-gray-700 dark:text-gray-300">
-                  Browse through our previous newsletters and catch up on past content.
+                  Browse through our previous newsletters and catch up on past AI-focused content.
                 </p>
                 <ArchiveButton />
               </div>

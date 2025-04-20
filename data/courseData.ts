@@ -5,7 +5,7 @@ export const courseModules = [
     title: 'Machine Learning',
     description: 'Deep dive into ML fundamentals, algorithms, and practical applications',
     icon: FaBrain,
-    link: '/learn/machine-learning',
-    thumbnail: '/static/images/learn/machine-learning.png',
+    link: '/explore/machine-learning',
+    thumbnail: '/static/images/explore/machine-learning.png',
   },
 ]

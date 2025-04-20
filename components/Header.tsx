@@ -8,7 +8,8 @@ import SearchButton from './SearchButton'
 import DiscordButton from './DiscordButton'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-4'
+  let headerClass =
+    'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-2 sm:py-4'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
