@@ -173,8 +173,8 @@ export default function ModuleLayout({ children }: LayoutProps) {
           )}
         >
           <div className="h-full py-6 pr-4 pl-2">
-            <TableOfContents 
-              className="border-l border-gray-200 dark:border-gray-800" 
+            <TableOfContents
+              className="border-l border-gray-200 dark:border-gray-800"
               onNavigate={() => setIsTocOpen(false)}
             />
           </div>

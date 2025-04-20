@@ -20,9 +20,8 @@ export default function AboutUsPage() {
               <FaBrain className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Build Cutting-Edge AI</h3>
               <p className="text-center">
-                Master advanced AI development. Build production-ready 
-                machine learning models, and deploy scalable 
-                AI solutions with practical, real-world guidance.
+                Master advanced AI development. Build production-ready machine learning models, and
+                deploy scalable AI solutions with practical, real-world guidance.
               </p>
             </div>
 
