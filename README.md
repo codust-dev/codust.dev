@@ -2,7 +2,7 @@
 
 ![codust-dev-banner](/public/static/images/twitter-card.png)
 
-A modern blog and course platform built with Next.js and Tailwind CSS.
+This repository contains the complete source code for codust.dev - feel free to explore, learn from, or contribute to the project.
 
 ## 🚀 Getting Started
 
@@ -128,4 +128,9 @@ layout: PostLayout
 canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-tailwind-nextjs-starter-blog
 ---
 ```
+
+---
+
+## Credits
+This project is built on top of the excellent [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) template by [@timlrx](https://github.com/timlrx).
 
