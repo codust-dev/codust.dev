@@ -7,11 +7,10 @@ export const metadata = genPageMetadata({ title: 'About' })
 export default function AboutUsPage() {
   return (
     <>
-      <PageLayout title="About Us">
+      <PageLayout title="About">
         <div className="space-y-8">
           <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-            Welcome to <span className="text-primary font-bold">codust.dev</span> — where we focus
-            on cutting-edge AI development and help you stay ahead with the latest tech trends.
+            Welcome to <span className="text-primary font-bold">codust.dev</span> — a platform for those who believe that true understanding comes not from consuming passively, but from creating actively. We're building the future by writing every line of code and solving every problem ourselves.
           </p>
 
           <div className="grid grid-cols-1 gap-6 pt-8 md:grid-cols-2">
@@ -20,8 +19,7 @@ export default function AboutUsPage() {
               <FaBrain className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Build Cutting-Edge AI</h3>
               <p className="text-center">
-                Master advanced AI development. Build production-ready machine learning models, and
-                deploy scalable AI solutions with practical, real-world guidance.
+                Master advanced AI development through hands-on creation.
               </p>
             </div>
 
@@ -30,15 +28,13 @@ export default function AboutUsPage() {
               <FaNewspaper className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Stay Tech-Updated</h3>
               <p className="text-center">
-                Never miss important tech trends with our curated weekly newsletter. Get insights on
-                emerging technologies, development best practices, and industry innovations that
-                matter.
+                Never miss important tech trends with our curated weekly newsletter. 
               </p>
             </div>
           </div>
 
           <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-            Join us to transform your AI development journey!
+            Join us to transform your development journey through active creation and building!
           </p>
         </div>
       </PageLayout>

@@ -5,7 +5,7 @@ import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
-import DiscordButton from './DiscordButton'
+// import DiscordButton from './DiscordButton'
 
 const Header = () => {
   let headerClass =
@@ -42,9 +42,9 @@ const Header = () => {
               </Link>
             ))}
         </div>
-        <div className="hidden sm:block">
+        {/* <div className="hidden sm:block">
           <DiscordButton />
-        </div>
+        </div> */}
         <SearchButton />
         <div className="hidden sm:block">
           <ThemeSwitch />
