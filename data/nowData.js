@@ -4,8 +4,8 @@
  */
 
 const nowData = {
-  currentWork: "Math behind ML. Coming next week!",
-  lastUpdated: "2025-04-27" // Update this date when you update the content
+  currentWork: 'Math behind ML. Coming next week!',
+  lastUpdated: '2025-04-27', // Update this date when you update the content
 }
 
-export default nowData 
+export default nowData

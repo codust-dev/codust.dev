@@ -10,7 +10,10 @@ export default function AboutUsPage() {
       <PageLayout title="About">
         <div className="space-y-8">
           <p className="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-            Welcome to <span className="text-primary font-bold">codust.dev</span> — a platform for those who believe that true understanding comes not from consuming passively, but from creating actively. We're building the future by writing every line of code and solving every problem ourselves.
+            Welcome to <span className="text-primary font-bold">codust.dev</span> — a platform for
+            those who believe that true understanding comes not from consuming passively, but from
+            creating actively. We're building the future by writing every line of code and solving
+            every problem ourselves.
           </p>
 
           <div className="grid grid-cols-1 gap-6 pt-8 md:grid-cols-2">
@@ -28,7 +31,7 @@ export default function AboutUsPage() {
               <FaNewspaper className="mx-auto mb-4 text-4xl" />
               <h3 className="text-center text-xl font-bold text-white">Stay Tech-Updated</h3>
               <p className="text-center">
-                Never miss important tech trends with our curated weekly newsletter. 
+                Never miss important tech trends with our curated weekly newsletter.
               </p>
             </div>
           </div>

@@ -7,11 +7,13 @@ This repository contains the complete source code for codust.dev - feel free to 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js
 - npm or yarn
 - Git
 
 ### Local Development Setup
+
 1. Install Node.js from [nodejs.org](https://nodejs.org)
 2. Verify installations:
    ```bash
@@ -42,10 +44,12 @@ This repository contains the complete source code for codust.dev - feel free to 
 ## 📝 Content Management
 
 ### Blog Posts
+
 - Add blog posts in the `data/blog` folder
 - Follow the frontmatter format below
 
 ### Course Modules
+
 1. Add module data in `data/courseData.ts`
 2. Create module folder in `data/explore`
 3. Add module thumbnail in `public/static/images/explore/module.png`
@@ -57,13 +61,16 @@ This repository contains the complete source code for codust.dev - feel free to 
 ### Common Issues
 
 #### 1. Prettier Formatting Errors
+
 ```bash
 yarn prettier --write .
 yarn lint --fix
 ```
 
 #### 2. NodeJS Path Issues
+
 Add Node.js to your system PATH:
+
 1. Open Start Menu → Search for "Environment Variables"
 2. In System Properties, click "Environment Variables"
 3. Under System Variables, find `Path` and click "Edit"
@@ -71,7 +78,9 @@ Add Node.js to your system PATH:
 5. Restart your terminal
 
 ### Cache Issues
+
 Clear Yarn cache if experiencing build problems:
+
 ```bash
 yarn cache clean
 ```
@@ -79,6 +88,7 @@ yarn cache clean
 ## 🎨 Customization
 
 ### Key Configuration Files
+
 - `data/siteMetadata.js` - Site-wide settings
 - `data/authors/default.md` - Author information
 - `data/projectsData.js` - Project card data
@@ -90,7 +100,9 @@ yarn cache clean
 - `contentlayer.config.ts` - Content management configuration
 
 ### Layouts
+
 Three post layouts available:
+
 - `PostLayout` - Default two-column layout
 - `PostSimple` - Simplified version
 - `PostBanner` - Layout with banner image
@@ -100,10 +112,12 @@ Three post layouts available:
 Posts use [Contentlayer](https://www.contentlayer.dev/) with Hugo-style frontmatter.
 
 ### Required Fields
+
 - `title`
 - `date`
 
 ### Optional Fields
+
 - `tags`
 - `lastmod`
 - `draft`
@@ -114,6 +128,7 @@ Posts use [Contentlayer](https://www.contentlayer.dev/) with Hugo-style frontmat
 - `canonicalUrl`
 
 ### Example Frontmatter
+
 ```yaml
 ---
 title: 'Introducing Tailwind Nexjs Starter Blog'
@@ -132,5 +147,5 @@ canonicalUrl: https://tailwind-nextjs-starter-blog.vercel.app/blog/introducing-t
 ---
 
 ## Credits
-This project is built on top of the excellent [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) template by [@timlrx](https://github.com/timlrx).
 
+This project is built on top of the excellent [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) template by [@timlrx](https://github.com/timlrx).
