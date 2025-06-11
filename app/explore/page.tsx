@@ -19,7 +19,7 @@ export default function ExplorePage() {
           <Link
             key={module.title}
             href={module.link}
-            className="group overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:scale-105 dark:bg-black"
+            className="group overflow-hidden rounded-2xl bg-white/90 shadow-lg transition-transform hover:scale-105 border border-gray-200 dark:bg-gray-900/80 dark:border-gray-700"
           >
             {/* Course Thumbnail */}
             <div className="relative aspect-video w-full">
@@ -33,7 +33,6 @@ export default function ExplorePage() {
             </div>
             {/* Course Info */}
             <div className="p-6">
-              <module.icon className="text-primary-600 dark:text-primary-400 mb-4 text-3xl" />
               <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-gray-100">
                 {module.title}
               </h3>
