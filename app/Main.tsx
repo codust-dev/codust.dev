@@ -12,29 +12,36 @@ export default function Home({ posts }) {
   return (
     <>
       {/* Hero Section with Background */}
-      <div className="relative mb-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-purple-900 opacity-90" />
-        <div className="relative px-6 py-24 sm:px-8 sm:py-32">
-          <div className="mx-auto max-w-4xl space-y-6 text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
-              Develop Cutting-Edge Technology
-            </h1>
-            <p className="mx-auto max-w-2xl text-xl text-gray-200">
-              Understand the way it truly matters and develop fast.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link
-                href="/explore"
-                className="flex items-center rounded-md bg-white px-8 py-3 text-lg font-medium text-blue-900 transition-all duration-200 hover:bg-gray-100"
-              >
-                Get Started <FaArrowRight className="ml-2" />
-              </Link>
-              <Link
-                href="/about"
-                className="flex items-center rounded-md border border-white px-8 py-3 text-lg font-medium text-white transition-all duration-200 hover:bg-white/10"
-              >
-                Learn More
-              </Link>
+      <div className="relative mb-10 flex items-center justify-center">
+        <div className="relative w-full rounded-3xl shadow-2xl overflow-hidden border-0 bg-gradient-to-br from-blue-900 via-purple-900 to-black animate-gradient-x">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-400/20 via-purple-400/10 to-transparent" />
+          <div className="relative z-10 px-6 py-12 sm:px-8 sm:py-16">
+            <div className="space-y-8 text-center max-w-3xl mx-auto">
+              <div className="flex justify-center">
+                <div className="bg-gradient-to-tr from-blue-500 to-purple-500 p-3 rounded-full shadow-lg">
+                  <FaRocket className="h-10 w-10 text-white drop-shadow-lg" />
+                </div>
+              </div>
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl drop-shadow-xl">
+                Master the Frontiers of AI
+              </h1>
+              <p className="mx-auto max-w-2xl text-xl text-blue-100 font-medium">
+                Understand the way it truly matters and develop fast
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <Link
+                  href="/explore"
+                  className="flex items-center rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 px-8 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-600 hover:to-purple-600"
+                >
+                  Get Started <FaArrowRight className="ml-3" />
+                </Link>
+                <Link
+                  href="/about"
+                  className="flex items-center rounded-lg border border-white/30 px-8 py-3 text-lg font-semibold text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-white/10 hover:text-white"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
           </div>
         </div>
