@@ -47,45 +47,6 @@ export default function Home({ posts }) {
         </div>
       </div>
 
-      {/* Now Section */}
-      <div className="mb-16">
-        <div className="py-6">
-          <div className="rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 shadow-md dark:from-gray-800 dark:to-gray-900 dark:shadow-gray-800/30">
-            <div className="flex items-start">
-              <div className="mr-4 flex-shrink-0">
-                <div className="bg-primary-500 flex h-12 w-12 items-center justify-center rounded-full text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Currently working on
-                </h3>
-                <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
-                  {nowData.currentWork}
-                </p>
-                <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                  <em>Last updated: {formatDate(nowData.lastUpdated, siteMetadata.locale)}</em>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Blog Posts Section */}
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
@@ -157,7 +118,48 @@ export default function Home({ posts }) {
         </div>
       )}
 
-      {siteMetadata.newsletter?.provider && (
+      {/* Now Section */}
+      <div className="mb-16">
+        <div className="py-6">
+          <div className="rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 shadow-md dark:from-gray-800 dark:to-gray-900 dark:shadow-gray-800/30">
+            <div className="flex items-start">
+              <div className="mr-4 flex-shrink-0">
+                <div className="bg-primary-500 flex h-12 w-12 items-center justify-center rounded-full text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                  Currently working on
+                </h3>
+                <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
+                  {nowData.currentWork}
+                </p>
+                <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+                  <em>Last updated: {formatDate(nowData.lastUpdated, siteMetadata.locale)}</em>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Newsletter subscription */}
+      
+      {/* {siteMetadata.newsletter?.provider && (
         <div className="mt-16 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 p-8 shadow-md dark:from-gray-800 dark:to-gray-900 dark:shadow-gray-800/30">
           <div className="mb-6 text-center">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Stay Updated</h2>
@@ -169,7 +171,7 @@ export default function Home({ posts }) {
             <NewsletterForm />
           </div>
         </div>
-      )}
+      )} */}
     </>
   )
 }
