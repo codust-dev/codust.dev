@@ -4,7 +4,7 @@
  */
 
 const nowData = {
-  currentWork: 'Model Optimization!',
+  currentWork: 'Model Optimization and AI for PDE',
   lastUpdated: '2025-06-11',
 }
 

@@ -6,34 +6,53 @@ date: 2025-06-11
 
 # Model Optimization
 
-Welcome to the Model Optimization module! This comprehensive course will take you from the basics to advanced concepts in machine learning.
+Welcome to the **Model Optimization Module**!  
+In this series, we'll explore powerful techniques to make machine learning models more efficient in terms of **memory**, **computation**, and **inference speed** — all while maintaining high accuracy.
 
-## What you'll learn
+Whether you're deploying models to edge devices or scaling inference in production, model optimization is key to performance.
 
-
+---
 
 ## Prerequisites
 
+Before you begin, it’s recommended that you have:
 
+- A basic understanding of **deep learning**, model training, and fine-tuning
+- Hands-on experience with **TensorFlow**, **PyTorch**, or **Hugging Face Transformers**
+- Familiarity with concepts like weights, activations, and inference
 
-## How to use this guide
+---
 
+## Learning Path Overview
 
-Choose your preferred learning style:
+This module is divided into several digestible parts:
 
-- Follow the structured path for a comprehensive learning experience
-- Jump to specific topics if you're already familiar with certain concepts
-- Focus on hands-on projects to build practical skills
+1. **Introduction to Model Optimization**  
+   Why optimization matters — motivation, trade-offs, and applications
 
-## Learning Path Structure
+2. **Numerical Precision & Data Formats**  
+   Understand how numbers are stored and what happens during quantization  
+   → FP32, FP16, BF16, INT8, INT4 explained with examples
 
-1. Introduction to Machine Learning
-2. Mathematics for Machine Learning
-3. Supervised Learning Algorithms
-4. Unsupervised Learning
-5. Deep Learning Fundamentals
-6. Advanced Neural Networks
-7. Practical Applications
-8. Industry Best Practices
+3. **Optimization During Training**  
+   Techniques like pruning, knowledge distillation, and mixed precision training
 
-Ready to start your machine learning journey? Click below to begin with the first chapter.
+4. **Post-Training Optimization**  
+   Speed-up techniques without retraining — quantization, operator fusion, and weight clustering
+
+5. **Quantization Techniques**  
+   Dive into modern methods and formats:
+   -  **GGUF (GPTQ-compatible binary format)**
+   -  **AWQ (AutoAWQ for 4-bit INT quantization)**
+   -  **GPTQ (Quantization for Transformers)**
+
+6. **Serving and Inference Libraries**  
+   Popular toolkits and runtimes for fast inference:
+   - **NVIDIA TensorRT**, **ONNX Runtime**
+   - **vLLM**, **Triton Inference Server**
+   - **AutoAWQ**, **Exllama**, **MLC**
+
+---
+<span style={{ color: 'gray', fontSize: '0.9rem', fontStyle: 'italic' }}>
+  Last edited: 2025-06-11
+</span>
