@@ -19,7 +19,7 @@ export default function ExplorePage() {
           <Link
             key={module.title}
             href={module.link}
-            className="group overflow-hidden rounded-2xl bg-white/90 shadow-lg transition-transform hover:scale-105 border border-gray-200 dark:bg-gray-900/80 dark:border-gray-700"
+            className="group overflow-hidden rounded-2xl border border-gray-200 bg-white/90 shadow-lg transition-transform hover:scale-105 dark:border-gray-700 dark:bg-gray-900/80"
           >
             {/* Course Thumbnail */}
             <div className="relative aspect-video w-full">
